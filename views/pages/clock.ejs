@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    <title>Clock</title>
+  </head>
+  
+  <body onload="startTime()">
+    <header>
+      <% include ../partials/header %>
+    </header>
+    
+    <div class="container entire-page-center">
+      <h1 id="clock" class="text-center text-lg">00:00:00</h1>
+    </div>
+    
+     <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+    <script>
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        var hh = h >= 12 ? "PM":"AM"; 
+        h = (h > 12)? h -12 : h;
+        h = (h == '00')? 12 : h; 
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        
+        document.getElementById('clock').innerHTML =
+          h + ":" + m + ":" + s + " " + hh;
+        var t = setTimeout(startTime, 500);
+      }
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};
+        return i;
+      }
+    </script>
+  </body>
+</html>

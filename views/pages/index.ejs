@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    <title>Home</title>
+  </head>
+  
+    
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="container">
+      <h1>Welcome!</h1>
+      <ul>
+      <% for(var i=0; i<apps.length; i++) { %>
+      
+      <li>
+        <a href='/<%= apps[i].url %>'><%= apps[i].name %></a>
+      </li>
+      <% } %>
+        </ul>
+    </div>
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+    
+  </body>
+  
+</html>
