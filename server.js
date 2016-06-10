@@ -23,6 +23,7 @@ app.get('/', function(req, res) {
 app.get('/clock', function(req, res) {
   res.render('pages/clock');
 });
-
-app.listen(8000);
-console.log('Listening on 8000');
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
+  console.log('listening on', port);
+});
